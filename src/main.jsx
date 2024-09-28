@@ -9,9 +9,10 @@ import {
 import Home from './Pages/Home.jsx';
 import Listed from './Pages/Listed.jsx';
 import Pages from './Pages/Pages.jsx';
-import Banner from './Components/Banner.jsx';
-import Books from './Components/Books.jsx';
+import { Toaster } from 'react-hot-toast';
+
 import Root from './Root/Root.jsx';
+import BookDetails from './Components/BookDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home/>,
+      },
+      {
+        path: "/book/:bookId",
+        element: <BookDetails/>,
+        loader: () => fetch('/books.json' )
       },
       {
         path: "/listed",
@@ -38,6 +44,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router}/>
+    <Toaster/>
       
   </StrictMode>,
 )

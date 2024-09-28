@@ -9,7 +9,7 @@ const Books = () => {
         .then(data=>setbooks(data))
     },[])
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-4/5 mx-auto gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-4/5 mx-auto gap-7'>
 
             {
                 books.map(book => <Book key={book.bookId} book={book}></Book>)
